@@ -52,7 +52,7 @@ Optional, by default set to `invalid`. Message type, purely decorative. Availabl
 - `valid`
 - `warning`
 
-Since the `type` vlaue is a name for a CSS class, you can add your own types, just mind a `mgr-` prefix that is going to be added automatically (so `your-fancy-type` becomes `mgr-your-fancy-type`).
+Since the `type` value is a name for a CSS class, you can add your own types, just mind a `mgr-` prefix that is going to be added automatically (so `your-fancy-type` becomes `mgr-your-fancy-type`).
 
 ## Controller
 
