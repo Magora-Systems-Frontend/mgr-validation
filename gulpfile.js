@@ -13,14 +13,15 @@ var minifyCss = require('./gulp-tasks/minify-css.js');
 var uglify = require('./gulp-tasks/uglify.js');
 var templateCache = require('./gulp-tasks/template-cache.js');
 var concat = require('./gulp-tasks/concat.js');
-//var bump = require('./gulp-tasks/bump.js');
+var bump = require('./gulp-tasks/bump.js');
 
 gulp.task('default', [ 'watch' ]);
 
 gulp.task('build', [
 	'clean',
 	'compress-css',
-	'compress-js'
+	'compress-js',
+	'bump-version'
 ]);
 
 gulp.task('watch', [
@@ -45,6 +46,11 @@ gulp.task('clean', clean({
 		config.tmp.root,
 		config.dist.root
 	]
+}));
+
+gulp.task('bump-version', bump({
+	src: config.package.files,
+	dest: config.package.root
 }));
 
 // process stylesheets

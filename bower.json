@@ -1,6 +1,6 @@
 {
   "name": "mgr-validation",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "description": "Simplified form validation for AngularJS",
   "license": "MIT",
   "ignore": [

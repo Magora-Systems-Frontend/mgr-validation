@@ -1,4 +1,13 @@
 {
+	"package": {
+		"name": "mgr-validation",
+		"root": "./",
+		"files": [
+			"./bower.json",
+			"./package.json"
+		]
+	},
+
 	"src": {
 		"root": "./src/",
 		"jade": "./src/**/*.jade",
@@ -8,6 +17,7 @@
 
 	"dist": {
 		"root": "./dist/",
+		"version": "0.0.1",
 		"filenames": {
 			"css": "mgr-validation.css",
 			"js":  "mgr-validation.js"
