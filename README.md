@@ -2,14 +2,33 @@
 
 Kind of a wrapper for standard Angular validation logic. Basically, what it does, it binds to a certain field (and form if needed) and shows/hide nicely (and consistently) styled validation messages.
 
+## Installation
+
+```
+bower install mgr-validation
+```
+
 ## Usage
 
-```javascript
-<form name="someController.form" novalidate ng-submit="someController.submit()">
-  <input name="field" ng-model="someController.something" required type="text" />
-  <mgr-validation form="someController.form" field="someController.form.field" validators="someController.validators.field"></mgr-validation>
-  <button type="submit">Submit!</button>
-</form>
+```html
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- ... -->
+		<link rel="stylesheet" href="./path/to/mgr-validation.css" />
+		<!-- ... -->
+	</head>
+	<body ng-app="someApp">
+		<!-- ... -->
+		<form name="someController.form" novalidate ng-submit="someController.submit()">
+			<input name="field" ng-model="someController.something" required type="text" />
+			<mgr-validation form="someController.form" field="someController.form.field" validators="someController.validators.field"></mgr-validation>
+			<button type="submit">Submit!</button>
+		</form>
+		<!-- ... -->
+		<script src="./path/to/mgr.validation.js" />
+	</body>
+</html>
 ```
 
 ## Directive parameters
