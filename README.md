@@ -26,9 +26,23 @@ bower install mgr-validation
 			<button type="submit">Submit!</button>
 		</form>
 		<!-- ... -->
-		<script src="./path/to/mgr.validation.js" />
+		<script src="./path/to/mgr-validation.js" />
 	</body>
 </html>
+```
+
+```js
+(function () {
+	'use strict';
+
+	angular
+		.module('someModule', [
+			'mgr.validation'
+		]);
+
+	// ...
+
+})();
 ```
 
 ## Directive parameters
