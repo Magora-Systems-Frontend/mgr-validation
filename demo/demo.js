@@ -51,7 +51,7 @@
 
 			// Some custom validation rules for password validation
 
-			// Passowrds are valid and matched
+			// Passwords are valid and matched
 			validationFactory.password.push({
 				type: 'valid',
 				message: 'Password is alright!',

@@ -6,7 +6,7 @@ Kind of a wrapper for standard Angular validation logic. Basically, what it does
 
 ```javascript
 <form name="someController.form" novalidate ng-submit="someController.submit()">
-  <input name="field" ng-model="someController.something" ng-pattern="[0-9]+" required type="text" />
+  <input name="field" ng-model="someController.something" required type="text" />
   <mgr-validation form="someController.form" field="someController.form.field" validators="someController.validators.field"></mgr-validation>
   <button type="submit">Submit!</button>
 </form>
