@@ -1,8 +1,12 @@
 {
   "name": "mgr-validation",
-  "version": "0.0.5",
+  "version": "0.0.16",
   "description": "Simplified form validation for AngularJS",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Magora-Systems-Frontend/mgr-validation"
+  },
   "ignore": [
     "**/.*",
     "node_modules",

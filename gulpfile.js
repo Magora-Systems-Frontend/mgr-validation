@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var config = require('./gulp.config.json');
+var pkg = require('./package.json');
 
 var connect = require('gulp-connect');
 
@@ -14,14 +15,19 @@ var uglify = require('./gulp-tasks/uglify.js');
 var templateCache = require('./gulp-tasks/template-cache.js');
 var concat = require('./gulp-tasks/concat.js');
 var bump = require('./gulp-tasks/bump.js');
+var header = require('./gulp-tasks/header.js');
 
-gulp.task('default', [ 'watch' ]);
+gulp.task('default', [
+	'version-css',
+	'version-js',
+	'watch'
+]);
 
 gulp.task('build', [
+	'update-pkg-version',
 	'clean',
-	'compress-css',
-	'compress-js',
-	'bump-version'
+	'version-css',
+	'version-js'
 ]);
 
 gulp.task('watch', [
@@ -48,7 +54,8 @@ gulp.task('clean', clean({
 	]
 }));
 
-gulp.task('bump-version', bump({
+// package versioning
+gulp.task('update-pkg-version', bump({
 	src: config.package.files,
 	dest: config.package.root
 }));
@@ -71,8 +78,14 @@ gulp.task('compress-css', ['concat-css'], minifyCss({
 	dest: config.dist.root
 }));
 
+gulp.task('version-css', ['compress-css'], header({
+	src: config.dist.root + config.dist.filenames.css,
+	dest: config.dist.root,
+	params: [ '/*', pkg.name, pkg.version, pkg.repository.url, '*/\n' ].join(' ')
+}));
+
 gulp.task('watch-stylus', function () {
-	return gulp.watch(config.src.styl, ['compress-css']);
+	return gulp.watch(config.src.styl, ['version-css']);
 });
 
 // process templates
@@ -109,8 +122,14 @@ gulp.task('compress-js', ['concat-js'], uglify({
 	dest: config.dist.root
 }));
 
+gulp.task('version-js', ['compress-js'], header({
+	src: config.dist.root + config.dist.filenames.js,
+	dest: config.dist.root,
+	params: [ '/*', pkg.name, pkg.version, pkg.repository.url, '*/\n' ].join(' ')
+}));
+
 gulp.task('watch-js', function () {
-	return gulp.watch([config.src.js, config.src.jade], ['compress-js']);
+	return gulp.watch([config.src.js, config.src.jade], ['version-js']);
 });
 
 // misc
