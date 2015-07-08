@@ -1,10 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>mgr.validation demo</title>
+		<title>mgr.validation</title>
+		<link rel="stylesheet" href="./bower_components/mgr-validation/dist/mgr-validation.css" />
+		<link rel="stylesheet" href="./demo/demo.css" />
 	</head>
-	<body>
-		<h1>pek</h1>
+	<body ng-app="demo">
+		<article demo id="demo">
+
+			<header>
+				<h1>mgr.validation</h1>
+				<p>Simplified validation for AngularJS.</p>
+			</header>
+
+			<form name="demo.form" novalidate ng-submit="demo.submit()">
+				<ul class="fields">
+					<li>
+						<label for="username">Username</label>
+						<input id="username" name="username" ng-model="demo.profile.username" type="text" required ng-pattern="/^[a-zA-Z ]+$/" ng-maxlength="8" />
+						<mgr-validation form="demo.form" field="demo.form.username" validators="demo.validationFactory.username"></mgr-validation>
+					</li>
+					<li>
+						<label for="password">Password</label>
+						<input id="password" name="password" ng-model="demo.profile.password" type="password" required ng-minlength="8" ng-maxlength="16" />
+					</li>
+					<li>
+						<label for="passwordConfirm">Rassword again</label>
+						<input id="passwordConfirm" name="passwordConfirm" ng-model="demo.profile.passwordConfirm" type="password" required ng-minlength="8" ng-maxlength="16" />
+					</li>
+					<li>
+						<mgr-validation form="demo.form" field="demo.form.password" validators="demo.validationFactory.password"></mgr-validation>
+					</li>
+					<li><button ng-disabled="demo.form.$invalid || !demo.doPasswordsMatch()" type="submit">Sign up!</button></li>
+				</ul>
+			</form>
+
+		</article>
+
+		<script src="./bower_components/angular/angular.min.js"></script>
+		<script src="./bower_components/mgr-validation/dist/mgr-validation.js"></script>
+		<script src="./demo/demo.js"></script>
+		<script src="./demo/validationFactory.js"></script>
 	</body>
 </html>
