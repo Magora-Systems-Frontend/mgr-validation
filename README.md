@@ -120,4 +120,4 @@ someController.validators.field = [
 
 ## See also
 
-Working demo can be found in `demo/`.
+Working demo can be found in `demo/` or [demo](http://magora-systems-frontend.github.io/mgr-validation/).
