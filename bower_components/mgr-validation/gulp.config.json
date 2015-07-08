@@ -1,0 +1,45 @@
+{
+	"package": {
+		"name": "mgr-validation",
+		"root": "./",
+		"files": [
+			"./bower.json",
+			"./package.json"
+		]
+	},
+
+	"src": {
+		"root": "./src/",
+		"jade": "./src/**/*.jade",
+		"styl": "./src/**/*.styl",
+		"js":   "./src/**/*.js"
+	},
+
+	"dist": {
+		"root": "./dist/",
+		"version": "0.0.1",
+		"filenames": {
+			"css": "mgr-validation.css",
+			"js":  "mgr-validation.js"
+		}
+	},
+
+	"tmp": {
+		"root": "./tmp/",
+		"html": "./tmp/**/*.html",
+		"css":  "./tmp/**/*.css",
+		"js":   "./tmp/**/*.js"
+	},
+
+	"demo": {
+		"root": "./demo/",
+		"filenames": {
+			"html": "demo.html",
+			"css":  "demo.css",
+			"js":   "demo.js"
+		},
+		"html": "./demo/**/*.html",
+		"css":  "./demo/**/*.css",
+		"js":   "./demo/**/*.js"
+	}
+}
