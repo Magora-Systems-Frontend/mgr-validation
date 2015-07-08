@@ -2,6 +2,8 @@
 
 Kind of a wrapper for standard Angular validation logic. Basically, what it does, it binds to a certain field (and form if needed) and shows/hide nicely (and consistently) styled validation messages.
 
+The reason this thing was made is that standard form validation in Angular often gets way too verbose and hard to maintain.
+
 ## Installation
 
 ```
@@ -85,11 +87,11 @@ Optional, by default set to `invalid`. Message type, purely decorative. Availabl
 - `valid`
 - `warning`
 
-Since the `type` value is a name for a CSS class, you can add your own types, just mind a `mgr-` prefix that is going to be added automatically (so `your-fancy-type` becomes `mgr-your-fancy-type`).
+Since the `type` value is a CSS class, you can add your own types, just mind the `mgr-` prefix that is going to be added automatically (so `your-fancy-type` becomes `mgr-your-fancy-type`).
 
 ## Controller
 
-A bit more detailed example in a controller:
+A bit more detailed example of the controller logic:
 
 ```javascript
 // Define the validators object
@@ -98,17 +100,17 @@ someController.validators = {};
 // Define an array of validators for the 'field' field
 someController.validators.field = [
   {
-    // Show this message on attempt to submit the form with no value in the field
+    // Show this message on attempt to submit the form with with an empty required field
     message: 'Please fill in the field.',
     rule: function (form, field) { return form.$submitted && field.$error.required; }
   },
   {
-    // Make sure the field contains a number
+    // Make sure the field matched the pattern
     message: 'The field must contain a number.',
     rule: function (form, field) { return field.$error.pattern; }
   },
   {
-    // The field is valid, congratulate the user
+    // The field is filled in properly, congratulate the user
     message: 'Yay, all good!',
     type: 'valid',
     rule: function (form, field) { return field.$valid; }
@@ -118,4 +120,4 @@ someController.validators.field = [
 
 ## See also
 
-For proper examples check out `demo/`.
+Working demo can be found in `demo/`.
