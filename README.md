@@ -8,6 +8,7 @@ The reason this thing was made is that standard form validation in Angular often
 
 ```
 bower install mgr-validation
+npm install mgr-validation
 ```
 
 ## Usage
