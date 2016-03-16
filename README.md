@@ -1,5 +1,7 @@
 # mgr.validation
 
+Obsolete, please use [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages) instead.
+
 Kind of a wrapper for standard Angular validation logic. Basically, what it does, it binds to a certain field (and form if needed) and shows/hide nicely (and consistently) styled validation messages.
 
 The reason this thing was made is that standard form validation in Angular often gets way too verbose and hard to maintain.
